@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import firebase from "./firebase";
+import firebase from "./Firebase";
 
 function App() {
-  const [count, setCount] = useState([]);
-
+  // const [count, setCount] = useState([]);
+  // console.log(firebase)
+  
   useEffect(() => {
-    firebase
-      .firestore()
-      .collection("abbreviations")
-      .doc("oil")
-      .onSnapshot(function(querySnapshot) {
-        // let items = [];
-        // querySnapshot.docs.forEach(doc => {
-        // querySnapshot.forEach(doc => {
-        //   items.push(doc.data());
-        // });
-        console.log(querySnapshot.data());
-        // setCount(items);
-      });
+    firebase.getData('abbreviations', 'oil')
+    firebase.getData('abbreviations', 'units')
+    firebase.getData('glossary', 'common')
+    // firebase
+    //   .collection("abbreviations")
+    //   .doc("oil")
+    //   .onSnapshot(function(querySnapshot) {
+    //     // let items = [];
+    //     // querySnapshot.docs.forEach(doc => {
+    //     // querySnapshot.forEach(doc => {
+    //     //   items.push(doc.data());
+    //     // });
+    //     console.log(querySnapshot.data());
+    //     // setCount(items);
+    //   });
   }, []);
 
   return (
