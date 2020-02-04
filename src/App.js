@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import firebase from "./Firebase";
+import '@gpn-design/uikit/dist/style.css';
+import { Button } from '@gpn-design/uikit';
 
 function App() {
   // const [count, setCount] = useState([]);
   // console.log(firebase)
   
   useEffect(() => {
-    firebase.getData('abbreviations', 'oil')
-    firebase.getData('abbreviations', 'units')
-    firebase.getData('glossary', 'common')
+    // firebase.getData('abbreviations', 'oil')
+    // firebase.getData('abbreviations', 'units')
+    // firebase.getData('glossary', 'common')
     // firebase
     //   .collection("abbreviations")
     //   .doc("oil")
@@ -25,22 +27,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-
-
-        <p>123</p>
-        <div className="App-link">
-
-          {/* {count.map(function(obj, index) {
-            console.log(index);
-            for (var key in obj.oil) {
-              // console.log(key, obj[key]);
-            return (<div key={key}>{key} — {obj[key]}</div>)
-            }
-          })} */}
-
-        </div>
-
+    <div className="App theme theme_breakpoint_gpn-default theme_color_gpn-default theme_control_gpn-default theme_font_small theme_gap_small theme_size_gpn-default theme_space_gpn-default">
+      <Button type="button" view="primary" wpSize="l" from="default" width="auto">Кнопка</Button>
     </div>
   );
 }
