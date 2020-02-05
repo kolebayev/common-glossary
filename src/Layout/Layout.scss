@@ -1,0 +1,8 @@
+.layout {
+  position: relative;
+  display: grid;
+  height: calc(100vh - 65px);
+  grid-template-columns: 200px minmax(544px, auto);
+  grid-template-rows: 100%;
+  overflow-x: auto;
+}
