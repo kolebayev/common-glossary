@@ -14,6 +14,7 @@ class Firebase {
       .collection(collection)
       .doc(doc)
       .onSnapshot(function(doc) {
+        // console.log(doc.data())
         callback([doc.data()])
       })
   };

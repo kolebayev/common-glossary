@@ -1,14 +1,11 @@
 import React from "react";
 import "./Layout.scss";
-// import '@gpn-design/uikit/dist/style.css';
-// import { Button } from '@gpn-design/uikit';
-// import firebase from "./Firebase";
 
 function Layout(props) {
   return (
-    <div className='layout'>
-      <section>{props.leftSection}</section>
-      <section>{props.rightSection}</section>
+    <div className="layout">
+      <section className='layout__left-section' key="section1">{props.leftSection}</section>
+      <section key="section2">{props.rightSection}</section>
     </div>
   );
 }

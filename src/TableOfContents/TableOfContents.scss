@@ -1,3 +1,8 @@
 .table-of-contents {
-  
+  position: fixed;
+  padding: 24px;
+  & > button {
+    display: block;
+    margin-bottom: 20px;
+  }
 }

@@ -1,0 +1,11 @@
+.content {
+  &__item {
+    margin-bottom: var(--space-4xl);
+    &_heading {
+      margin-bottom: var(--space-m);
+    }
+    &_text {
+
+    }
+  }
+}
