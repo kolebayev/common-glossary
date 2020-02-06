@@ -3,15 +3,16 @@ import "@gpn-design/uikit/dist/style.css";
 import "./App.scss";
 import Layout from "./Layout/Layout";
 import TableOfContents from "./TableOfContents/TableOfContents";
-import shownContent from "./Context/shownContent";
-import firebase from "./Firebase";
+import Welcome from './Welcome/Welcome'
+// import shownContent from "./Context/shownContent";
+// import firebase from "./Firebase";
 import { Header, Logo, SearchBar } from '@gpn-design/uikit';
 
 function App() {
-  const [parsedData, setParsedData] = useState('');
+  const [content, setContent] = useState('welcome');
 
   useEffect(() => {
-    firebase.getData("glossary", "common", setParsedData);
+    // firebase.getData("glossary", "common", setParsedData);
   }, []);
 
   const headerLeftSide = [
@@ -33,7 +34,7 @@ function App() {
     {
       indent: 's',
       children: (
-        <p className="text text_size_s text_weight_normal text_view_secondary">v 1.0.0</p>
+        <p className="text text_size_s text_weight_normal text_view_ghost">v 1.0.0</p>
       )
     }
   ];
@@ -44,28 +45,7 @@ function App() {
       <Layout
         leftSection={<TableOfContents />}
         rightSection={
-          <div>
-            {parsedData === '' ? null : parsedData.map((items, index) => {
-              return (
-                  <>
-                  {Object.keys(items).map(key => {
-                    return (
-                      <div key={key + index}>
-                        {key}: {items[key]} 
-                      </div>
-                    );
-                  })}
-                  </>
-              );
-            })}
-            {/* <shownContent.Provider value={initialState}>
-
-              <shownContent.Consumer>
-                {initialState ? <div>{initialState}</div> : null}
-              </shownContent.Consumer>
-
-            </shownContent.Provider> */}
-          </div>
+          content === 'welcome' && <Welcome /> 
         }
       />
     </div>
