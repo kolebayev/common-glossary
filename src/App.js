@@ -6,7 +6,7 @@ import TableOfContents from "./TableOfContents/TableOfContents";
 import Welcome from "./Welcome/Welcome";
 import ContentItem from "./ContentItem/ContentItem";
 import firebase from "./Firebase";
-import { Header, Logo, SearchBar } from "@gpn-design/uikit";
+import { Header, Logo, SearchBar, Input } from "@gpn-design/uikit";
 
 export default function App() {
   const [status, setStatus] = useState("welcome");
@@ -35,10 +35,10 @@ export default function App() {
         </Logo>
       )
     },
-    {
-      indent: "l",
-      children: <SearchBar placeholder={"Я ищу"} label={"Поиск"} />
-    }
+    // {
+    //   indent: "l",
+    //   children: <SearchBar placeholder={"Я ищу"} label={"Поиск"} />
+    // }
   ];
 
   const headerRIghtSide = [
@@ -53,11 +53,14 @@ export default function App() {
   ];
 
   return (
-    <div className="App theme theme_breakpoint_gpn-default theme_color_gpn-default theme_control_gpn-default theme_font_small theme_gap_small theme_size_gpn-default theme_space_gpn-default">
+    <div className="App theme theme_breakpoint_gpn-default theme_color_gpn-default theme_control_gpn-default theme_font_gpn-default theme_gap_small theme_size_gpn-default theme_space_gpn-default">
       <Header leftSide={headerLeftSide} rightSide={headerRIghtSide} />
       <Layout
         leftSection={
-          <TableOfContents key="tableOfContents" passStatus={passStatus} />
+          <div style={{padding: '20px'}}>
+            <Input placeholder='искать' width='default' view='default' wpSize='s' form='default' state=''/>
+            <TableOfContents key="tableOfContents" passStatus={passStatus} />
+          </div>
         }
         rightSection={
           items === null ? (
