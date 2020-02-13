@@ -4,15 +4,5 @@
   margin: var(--space-4xl) auto 0 auto;
 }
 
-.input {
-  width: 100%;
-  font-family: var(--font-primary);
-  height: var(--input-height);
-  padding: 0 var(--input-space);
-  &_size_s {
-    --input-height: var(--control-height-s);
-    --input-font-size: var(--control-text-size-s);
-    --input-space: calc(var(--control-space-s)*0.5);
-  }
-}
+
 

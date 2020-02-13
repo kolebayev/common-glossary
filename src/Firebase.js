@@ -22,11 +22,27 @@ class Firebase {
       .collection(collection)
       .doc(doc)
       .onSnapshot(doc => {
-        // console.log(typeof doc.data(), doc.data());
         const keysArr = Object.values(doc.data());
-        // console.log()
         callback(this.sortAZ(keysArr));
       });
+  };
+
+  globalSearch = (arr, query, callback) => {
+    let fetched = [];
+
+    arr.forEach(el => {
+      this.db
+        .collection(el[0])
+        .doc(el[1])
+        .onSnapshot(doc => {
+          let filtered = Object.values(doc.data()).filter( el => {
+            return (el.name.toLowerCase().includes(query) || el.description.toLowerCase().includes(query));
+          });
+          filtered.length > 0 && fetched.push(...filtered);
+        });
+    });
+    
+    callback(fetched)
   };
 
   // temp method to reorganize DB
@@ -46,8 +62,11 @@ class Firebase {
   //     .collection(collection)
   //     .doc(doc)
   //     .set(o)
-    
+
   // };
 }
 
 export default new Firebase();
+
+
+

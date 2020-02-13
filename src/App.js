@@ -10,21 +10,35 @@ import { Header, Logo, SearchBar, Input } from "@gpn-design/uikit";
 
 export default function App() {
   const [status, setStatus] = useState("welcome");
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  
 
-  const passStatus = dbLocation => {
+  const passStatus = (dbLocation, searchQuery) => {
     setStatus(dbLocation);
+    setSearchQuery(searchQuery)
   };
 
   useEffect(() => {
-    status === "welcome" && setItems(null);
-    status === "abbreviations/oil" &&
+    // status === "welcome" && setItems([]);
+    if (status === "abbreviations/oil") {
       firebase.getData("abbreviations", "oil", setItems);
+    }
     status === "abbreviations/units" &&
       firebase.getData("abbreviations", "units", setItems);
     status === "glossary/common" &&
       firebase.getData("glossary", "common", setItems);
-  }, [status]);
+    status === "search" &&
+      firebase.globalSearch(
+        [
+          ["abbreviations", "oil"],
+          ["abbreviations", "units"],
+          ["glossary", "common"]
+        ],
+        searchQuery,
+        setItems
+      );
+  }, [status, searchQuery]);
 
   const headerLeftSide = [
     {
@@ -34,7 +48,7 @@ export default function App() {
           <p className="text text_size_l text_weight_bold">Глоссарий ГПН</p>
         </Logo>
       )
-    },
+    }
     // {
     //   indent: "l",
     //   children: <SearchBar placeholder={"Я ищу"} label={"Поиск"} />
@@ -57,15 +71,15 @@ export default function App() {
       <Header leftSide={headerLeftSide} rightSide={headerRIghtSide} />
       <Layout
         leftSection={
-          <div style={{padding: '20px'}}>
-            <Input placeholder='искать' width='default' view='default' wpSize='s' form='default' state=''/>
+
+            
             <TableOfContents key="tableOfContents" passStatus={passStatus} />
-          </div>
+
         }
         rightSection={
-          items === null ? (
-            <Welcome />
-          ) : (
+          // items.length === 0 ? (
+          //   <Welcome />
+          // ) : (
             <div className="content">
               {items.map(item => {
                 return (
@@ -78,9 +92,9 @@ export default function App() {
                 );
               })}
             </div>
-          )
+          // )
         }
       />
     </div>
-  )
-};
+  );
+}
