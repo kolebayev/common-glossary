@@ -24,7 +24,7 @@ export default function TableOfContents({ passStatus }) {
           e.target.value.length > 0 && setQuery(e.target.value)
         }
       />
-      <button onClick={() => { passStatus("search", query) }}>
+      <button onClick={() => { query.length > 0 && passStatus("search", query) }}>
         GET
       </button>
 

@@ -36,9 +36,12 @@ export default function App() {
           ["glossary", "common"]
         ],
         searchQuery,
-        setItems
+        // async (arr) => {
+          // let result = [...arr]
+          setItems
+        // }
       );
-  }, [status, searchQuery]);
+  }, [status, searchQuery ]);
 
   const headerLeftSide = [
     {
@@ -71,10 +74,13 @@ export default function App() {
       <Header leftSide={headerLeftSide} rightSide={headerRIghtSide} />
       <Layout
         leftSection={
-
-            
+            <>
+            <button onClick={() => { 
+              setStatus("search") 
+              setSearchQuery('ж')
+            }}>get from /app</button>
             <TableOfContents key="tableOfContents" passStatus={passStatus} />
-
+            </>
         }
         rightSection={
           // items.length === 0 ? (

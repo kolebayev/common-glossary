@@ -28,24 +28,59 @@ class Firebase {
   };
 
   globalSearch = (arr, query, callback) => {
+    // let fetched = []
+    // arr.forEach( (el, index) => {
+    //   this.db
+    //     .collection(el[0])
+    //     .doc(el[1])
+    //     .onSnapshot(doc => {
+    //       let filtered = Object.values(doc.data()).filter( el => {
+    //         return (el.name.toLowerCase().includes(query) || el.description.toLowerCase().includes(query));
+    //       });
+    //       (filtered.length > 0) && fetched.push(...filtered);
+    //       console.log(fetched)
+
+    //     });
+    //   arr.length - 1 === index && callback(fetched)
+    // });
+
     let fetched = [];
 
-    arr.forEach(el => {
-      this.db
-        .collection(el[0])
-        .doc(el[1])
-        .onSnapshot(doc => {
-          let filtered = Object.values(doc.data()).filter( el => {
-            return (el.name.toLowerCase().includes(query) || el.description.toLowerCase().includes(query));
+    const a = async fethced => {
+      arr.forEach((el, index) => {
+        this.db
+          .collection(el[0])
+          .doc(el[1])
+          .onSnapshot(doc => {
+            fetched.push(...Object.values(doc.data()));
           });
-          filtered.length > 0 && fetched.push(...filtered);
-        });
-    });
+      });
+    };
+
+    // console.log('fetched', fetched);
     
-    callback(fetched)
+    a().then(()=>{
+      console.log('fetched', fetched);
+      let filtered = fetched.filter(el => {
+        return (
+          el.name.toLowerCase().includes(query) ||
+          el.description.toLowerCase().includes(query)
+        );
+      });
+      console.log('filtered', filtered);
+    });
+
+    // console.log('fetched1', fetched);
+
+  
+    
+    
   };
 
-  // temp method to reorganize DB
+  /*
+  temp method to reorganize DB
+  */
+
   // mutation = (collection, doc) => {
 
   //   let o = {}
@@ -67,6 +102,3 @@ class Firebase {
 }
 
 export default new Firebase();
-
-
-
