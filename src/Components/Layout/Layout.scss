@@ -1,0 +1,14 @@
+.layout {
+  &_sidebar {
+    background-color: var(--color-bg-secondary);
+  }
+}
+
+.tpl-layout {
+  &_structure {
+    &_20-80 {
+      grid-template-columns: 20% 80%;
+      grid-template-rows: minmax(calc(100vh - 60px), auto);
+    }
+  }
+}

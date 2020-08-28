@@ -1,0 +1,12 @@
+.sidebar {
+  padding: var(--space-l);
+  &_list-item {
+    padding: var(--space-s) var(--space-l);
+    margin-bottom: var(--space-xs);
+    cursor: pointer;
+    border-radius: var(--control-radius);
+    &:hover {
+      background-color: var(--color-bg-default);
+    }
+  }
+}
