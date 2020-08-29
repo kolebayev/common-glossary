@@ -1,2 +1,5 @@
 .content {
+  overflow: scroll;
+  height: calc(100vh - 60px);
+  padding: 0 var(--space-6xl);
 }

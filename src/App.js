@@ -9,7 +9,7 @@ import { dbCollections } from './Firebase/dbCollections'
 
 function App() {
   const [activeSidebarItem, setActiveSidebarItem] = useState(
-    dbCollections[0].value
+    dbCollections[0].value + '-' + dbCollections[0].docs[0].value
   )
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
         <Layout
           sidebar={
             <Sidebar
+              activeSidebarItem={activeSidebarItem}
               setActiveSidebarItem={(item) => {
                 setActiveSidebarItem(item)
               }}

@@ -18,29 +18,25 @@ class Firebase {
   }
 
   getData = (collection, doc, callback) => {
-    // console.log(this.db.collectionGroup())
     this.db
       .collection(collection)
       .doc(doc)
       .onSnapshot((doc) => {
         const keysArr = Object.values(doc.data())
         callback(this.sortAZ(keysArr))
+        console.log(this.sortAZ(keysArr))
       })
   }
 
-  getDocsFromCollection = (collection, callback) => {
+  getDocsFromCollection = (collection, arr) => {
     this.db
       .collection(collection)
       .get()
       .then((querySnapshot) => {
-        // console.log('1')
         querySnapshot.forEach(function (doc) {
-          callback(doc.id)
+          arr.push(doc.id)
         })
-
-        // querySnapshot.forEach(function (doc) {
         //   console.log(doc.id, ' => ', doc.data())
-        // })
       })
   }
 

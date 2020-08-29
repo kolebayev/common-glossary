@@ -1,12 +1,33 @@
 .sidebar {
   padding: var(--space-l);
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // height: 100%;
+
   &_list-item {
     padding: var(--space-s) var(--space-l);
-    margin-bottom: var(--space-xs);
     cursor: pointer;
     border-radius: var(--control-radius);
     &:hover {
+      background-color: var(--color-bg-ghost);
+      transition: 0.3s;
+    }
+    &-active {
       background-color: var(--color-bg-default);
+      transition: 0.3s;
+    }
+  }
+  &_section-name {
+    margin: var(--space-s) 0 var(--space-s) var(--space-l);
+  }
+  &_section {
+    div.text:first-letter {
+      text-transform: capitalize;
+    }
+    margin-bottom: var(--space-2xl);
+    &:first-child {
+      margin-top: 0px;
     }
   }
 }
