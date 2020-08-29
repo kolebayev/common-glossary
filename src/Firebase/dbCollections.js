@@ -15,7 +15,7 @@ export const dbCollections = [
   },
   {
     value: 'glossary',
-    description: 'глоссарий',
+    description: 'термины',
     docs: [
       {
         value: 'common',
