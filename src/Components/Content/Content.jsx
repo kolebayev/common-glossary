@@ -16,8 +16,10 @@ export default function Content(props) {
 
   return (
     <div className="content">
-      {items.map((item) => {
-        return <div>{item.name + ' ——— ' + item.description + '\n'} </div>
+      {items.map((item, i) => {
+        return (
+          <div key={i}>{item.name + ' ——— ' + item.description + '\n'} </div>
+        )
       })}
     </div>
   )

@@ -24,7 +24,7 @@ class Firebase {
       .onSnapshot((doc) => {
         const keysArr = Object.values(doc.data())
         callback(this.sortAZ(keysArr))
-        console.log(this.sortAZ(keysArr))
+        // console.log(this.sortAZ(keysArr))
       })
   }
 
