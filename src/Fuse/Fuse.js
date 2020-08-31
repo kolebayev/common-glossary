@@ -17,11 +17,11 @@ class FuseSearch {
   test = (q) => {
     let result = this.fuse.search(q)
     result.forEach((item, i) => {
-      if (item.item.name.includes(q) || item.item.description.includes(q)) {
-        console.log(q, i, item.item.name, item.item.description)
-      } else {
-        console.log('gg')
-      }
+      // if (item.item.name.includes(q) || item.item.description.includes(q)) {
+      console.log(q, i, item.item.name, item.item.description)
+      // } else {
+      // console.log('gg')
+      // }
     })
     // console.log(result.filter((res) => res.score < 1))
   }

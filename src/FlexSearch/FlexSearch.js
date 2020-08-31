@@ -5,12 +5,7 @@ class Flexsearch {
   constructor() {
     this.index = new FlexSearch({
       // default values:
-      encode: 'balance',
-      tokenize: 'forward',
-      threshold: 0,
-      async: false,
-      worker: false,
-      cache: false,
+      tokenize: 'strict',
       depth: 3,
       doc: {
         id: 'id',
@@ -21,7 +16,7 @@ class Flexsearch {
     //   й: 'и',
     //   ё: 'е',
     // })
-    this.index.registerLanguage('ru')
+    // this.index.registerLanguage('ru')
 
     for (let i = 0; i < data.length; i++) {
       this.index.add(i, data[i].name)
@@ -29,6 +24,7 @@ class Flexsearch {
   }
 
   test = (q) => {
+    console.log('123')
     console.log(this.index.search('Процессинг'))
   }
 }
