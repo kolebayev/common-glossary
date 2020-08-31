@@ -1,40 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text } from '@gpn-design/uikit/Text'
 import {
   Header,
   HeaderModule,
   HeaderLogo,
-  HeaderSearchBar,
+  // HeaderSearchBar,
 } from '@gpn-design/uikit/Header'
-import { data } from './data.js'
-// import { useFlexSearch } from 'react-use-flexsearch'
-import FlexSearch from 'flexsearch'
+// import { data } from './data.js'
 
-export default function AppHeader() {
-  const index = new FlexSearch({
-    // default values:
-    encode: 'balance',
-    tokenize: 'forward',
-    threshold: 0,
-    async: false,
-    worker: false,
-    cache: false,
-  })
-  for (let i = 0; i < data.length; i++) {
-    index.add(i, data[i])
+// import { TextField } from '@gpn-design/uikit/TextField'
+
+// import Fuse from 'fuse.js'
+// import Fuse from '../../Fuse/Fuse'
+// https://fusejs.io/examples.html#nested-search
+
+import flex from '../../FlexSearch/FlexSearch'
+
+// http://elasticlunr.com/docs/index.html
+
+export default function AppHeader(props) {
+  const { setSearchQueryString } = props
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value)
   }
-  console.log(index)
-  // index.search(
-  //   'ра',
-  //   {
-  //     limit: 1000,
-  //     threshold: 5,
-  //     depth: 3,
-  //   },
-  //   function (results) {
-  //     console.log(results)
-  //   }
-  // )
+
+  const btn = () => {
+    flex.test(searchQuery)
+  }
 
   return (
     <Header
@@ -48,13 +42,25 @@ export default function AppHeader() {
             </HeaderLogo>
           </HeaderModule>
           <HeaderModule indent="l">
-            <HeaderSearchBar
+            {/* <HeaderSearchBar
               placeholder="Я ищу..."
               label="поиск"
-              // value={value}
-              // onChange={handleChange}
+              // value={'123'}
+              onChange={handleChange}
               // onSearch={handleSearch}
-            />
+            /> */}
+            <input onChange={handleChange} />
+            <button onClick={btn}>perform</button>
+            {searchQuery}
+            {/* <TextField
+              width="default"
+              size="m"
+              view="default"
+              type="text"
+              // maxLength="20"
+              placeholder="Я ищу..."
+              onChange={handleChange}
+            /> */}
           </HeaderModule>
         </>
       }

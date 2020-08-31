@@ -3,7 +3,7 @@ import firebase from '../../Firebase/Firebase'
 import './Content.scss'
 
 export default function Content(props) {
-  const { activeMenuItem } = props
+  const { activeMenuItem, searchResult } = props
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -13,6 +13,12 @@ export default function Content(props) {
       setItems
     )
   }, [activeMenuItem])
+
+  useEffect(() => {
+    // console.log(searchResult)
+    setItems([])
+    setItems([...searchResult])
+  }, [searchResult])
 
   return (
     <div className="content">

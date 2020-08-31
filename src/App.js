@@ -11,10 +11,15 @@ function App() {
   const [activeSidebarItem, setActiveSidebarItem] = useState(
     dbCollections[0].value + '-' + dbCollections[0].docs[0].value
   )
+  const [searchResult, setSearchResult] = useState([])
   return (
     <div className="App">
       <Theme preset={presetGpnDefault}>
-        <AppHeader />
+        <AppHeader
+          setSearchResult={(result) => {
+            setSearchResult(result)
+          }}
+        />
         <Layout
           sidebar={
             <Sidebar
@@ -24,7 +29,12 @@ function App() {
               }}
             />
           }
-          content={<Content activeMenuItem={activeSidebarItem} />}
+          content={
+            <Content
+              activeMenuItem={activeSidebarItem}
+              searchResult={searchResult}
+            />
+          }
         />
       </Theme>
     </div>

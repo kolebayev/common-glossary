@@ -9,9 +9,8 @@ export default function Sidebar(props) {
     <div className="sidebar">
       {dbCollections.map((collection, i) => {
         return (
-          <div className="sidebar_section">
+          <div key={i} className="sidebar_section">
             <Text
-              key={i}
               align="left"
               view="ghost"
               size="s"

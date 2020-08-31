@@ -5082,7 +5082,7 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.3.tgz#c1283ac9f27b368abc1e36d1ff7b04501a30356b"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
 
-flexsearch@^0.6.22, flexsearch@^0.6.32:
+flexsearch@^0.6.32:
   version "0.6.32"
   resolved "https://registry.yarnpkg.com/flexsearch/-/flexsearch-0.6.32.tgz#1e20684d317af65baa445cdd9864a5f5b320f510"
   integrity sha512-EF1BWkhwoeLtbIlDbY/vDSLBen/E5l/f1Vg7iX5CDymQCamcx1vhlc3tIZxIDplPjgi0jhG37c67idFbjg+v+Q==
@@ -5256,6 +5256,11 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+
+fuse.js@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.1.tgz#76f1b4ab9cd021b854a68381b35628033d27507e"
+  integrity sha512-+hAS7KYgLXontDh/vqffs7wIBw0ceb9Sx8ywZQhOsiQGcSO5zInGhttWOUYQYlvV/yYMJOacQ129Xs3mP3+oZQ==
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -9502,13 +9507,6 @@ react-transition-group@^4.4.1:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-
-react-use-flexsearch@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-use-flexsearch/-/react-use-flexsearch-0.1.1.tgz#2db48989a9197ee3d9776a6c2ae1ff6e65919ba2"
-  integrity sha512-UDRDB26HPcAo0gXNkUYYkcjoYCW4FSWr7Ich4adgVr7bqefJG7fnjlcqnwsKQkbZuteRLYzzox+1FKRTt3Z5vg==
-  dependencies:
-    flexsearch "^0.6.22"
 
 react@^16.13.1:
   version "16.13.1"
