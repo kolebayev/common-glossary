@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/common-glossary/static/css/main.076b298c.chunk.css",
+    "main.js": "/common-glossary/static/js/main.a203308b.chunk.js",
+    "main.js.map": "/common-glossary/static/js/main.a203308b.chunk.js.map",
+    "runtime-main.js": "/common-glossary/static/js/runtime-main.27c8b3ef.js",
+    "runtime-main.js.map": "/common-glossary/static/js/runtime-main.27c8b3ef.js.map",
+    "static/css/2.7844ea66.chunk.css": "/common-glossary/static/css/2.7844ea66.chunk.css",
+    "static/js/2.2c772b46.chunk.js": "/common-glossary/static/js/2.2c772b46.chunk.js",
+    "static/js/2.2c772b46.chunk.js.map": "/common-glossary/static/js/2.2c772b46.chunk.js.map",
+    "index.html": "/common-glossary/index.html",
+    "precache-manifest.239b300e87ec2d20993896c5f0e10e67.js": "/common-glossary/precache-manifest.239b300e87ec2d20993896c5f0e10e67.js",
+    "service-worker.js": "/common-glossary/service-worker.js",
+    "static/css/2.7844ea66.chunk.css.map": "/common-glossary/static/css/2.7844ea66.chunk.css.map",
+    "static/css/main.076b298c.chunk.css.map": "/common-glossary/static/css/main.076b298c.chunk.css.map",
+    "static/js/2.2c772b46.chunk.js.LICENSE.txt": "/common-glossary/static/js/2.2c772b46.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.27c8b3ef.js",
+    "static/css/2.7844ea66.chunk.css",
+    "static/js/2.2c772b46.chunk.js",
+    "static/css/main.076b298c.chunk.css",
+    "static/js/main.a203308b.chunk.js"
+  ]
+}
