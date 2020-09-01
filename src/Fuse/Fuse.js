@@ -21,7 +21,7 @@ class FuseSearch {
   }
 
   search = (queryString) => {
-    console.log(this.fuse.search(queryString))
+    // console.log(this.fuse.search(queryString))
     return this.fuse.search(queryString)
   }
 }
