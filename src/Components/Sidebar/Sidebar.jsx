@@ -63,7 +63,7 @@ export default function Sidebar(props) {
                     )
                   }}
                 >
-                  <Text align="left" view="link-minor" size="xl">
+                  <Text align="left" view="primary" size="xl">
                     {doc.description}
                   </Text>
                 </div>
