@@ -2,6 +2,7 @@
   overflow-y: scroll;
   height: calc(100vh - 60px);
   padding: 0 var(--space-6xl);
+  background-color: var(--color-bg-default);
 
   scrollbar-width: none; /* Also needed to disable scrollbar Firefox */
   -ms-overflow-style: none; /* Disable scrollbar IE 10+ */
@@ -9,10 +10,6 @@
   &::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* Disable scrollbar Chrome/Safari/Webkit */
-  }
-
-  &:last-child {
-    // margin-bottom: var(--space-2xl);
   }
 
   .list-item {

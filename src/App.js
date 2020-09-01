@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { Theme, presetGpnDefault, presetGpnDark } from '@gpn-design/uikit/Theme'
+import {
+  Theme,
+  presetGpnDefault,
+  presetGpnDisplay,
+} from '@gpn-design/uikit/Theme'
 import { abbreviations_oil } from './Fuse/abbreviations_oil'
 
 import AppHeader from './Components/AppHeader/AppHeader'
@@ -16,7 +20,7 @@ function App() {
   const [uiIsDefault, setUiIsDefault] = useState(true)
 
   return (
-    <Theme preset={uiIsDefault ? presetGpnDefault : presetGpnDark}>
+    <Theme preset={uiIsDefault ? presetGpnDefault : presetGpnDisplay}>
       <div className="App">
         <AppHeader
           setRenderData={(arr) => setRenderData(arr)}

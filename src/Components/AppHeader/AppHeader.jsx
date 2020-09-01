@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text } from '@gpn-design/uikit/Text'
 import { Header, HeaderModule, HeaderLogo } from '@gpn-design/uikit/Header'
-
 import { Button } from '@gpn-design/uikit/Button'
+import './AppHeader.scss'
 
 import Fuse from '../../Fuse/Fuse'
 
@@ -24,13 +24,9 @@ export default function AppHeader(props) {
     }
   }
 
-  const theme = [
-    { label: 'светлая', value: 'light' },
-    { label: 'темная', value: 'display' },
-  ]
-
   return (
     <Header
+      className="appheader"
       leftSide={
         <>
           <HeaderModule>
