@@ -1,5 +1,23 @@
 .content {
   overflow: scroll;
   height: calc(100vh - 60px);
-  padding: 0 var(--space-6xl);
+  padding: var(--space-xl) var(--space-6xl) 0 var(--space-6xl);
+  .list-item {
+    text-align: left;
+    margin-bottom: var(--space-2xl);
+    &_name {
+      margin-bottom: var(--space-s);
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    &_description {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    &_highlight {
+      background: var(--color-typo-normal);
+    }
+  }
 }

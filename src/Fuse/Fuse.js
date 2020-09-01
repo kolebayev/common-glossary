@@ -1,29 +1,28 @@
-import { data } from './data.js'
 import Fuse from 'fuse.js'
+import { glossary_common } from './glossary_common.js'
+import { abbreviations_oil } from './abbreviations_oil.js'
+import { abbreviations_units } from './abbreviations_units.js'
 
 class FuseSearch {
   constructor() {
-    this.fuse = new Fuse(data, {
-      includeScore: true,
-      isCaseSensitive: false,
-      includeMatches: true,
-      minMatchCharLength: 3,
-      shouldSort: true,
-      // findAllMatches: true,
-      keys: ['name', 'description'],
-    })
+    this.fuse = new Fuse(
+      [...glossary_common, ...abbreviations_oil, ...abbreviations_units],
+      {
+        includeScore: true,
+        isCaseSensitive: false,
+        includeMatches: true,
+        // includeMatches: false,
+        // minMatchCharLength: 3,
+        // shouldSort: true,
+        // findAllMatches: true,
+        keys: ['name', 'description'],
+      }
+    )
   }
 
-  test = (q) => {
-    let result = this.fuse.search(q)
-    result.forEach((item, i) => {
-      // if (item.item.name.includes(q) || item.item.description.includes(q)) {
-      console.log(q, i, item.item.name, item.item.description)
-      // } else {
-      // console.log('gg')
-      // }
-    })
-    // console.log(result.filter((res) => res.score < 1))
+  search = (queryString) => {
+    console.log(this.fuse.search(queryString))
+    return this.fuse.search(queryString)
   }
 }
 

@@ -1,39 +1,28 @@
 import React, { useState } from 'react'
 import { Theme, presetGpnDefault } from '@gpn-design/uikit/Theme'
+import { abbreviations_oil } from './Fuse/abbreviations_oil'
+
 import AppHeader from './Components/AppHeader/AppHeader'
 import Layout from './Components/Layout/Layout'
 import Sidebar from './Components/Sidebar/Sidebar'
 import Content from './Components/Content/Content'
+
 import './App.css'
-import { dbCollections } from './Firebase/dbCollections'
 
 function App() {
-  const [activeSidebarItem, setActiveSidebarItem] = useState(
-    dbCollections[0].value + '-' + dbCollections[0].docs[0].value
-  )
-  const [searchResult, setSearchResult] = useState([])
+  const [renderData, setRenderData] = useState(abbreviations_oil)
+  const [searchQuery, setSearchQuery] = useState('')
   return (
     <div className="App">
       <Theme preset={presetGpnDefault}>
         <AppHeader
-          setSearchResult={(result) => {
-            setSearchResult(result)
-          }}
+          setRenderData={(arr) => setRenderData(arr)}
+          setSearchQuery={(query) => setSearchQuery(query)}
         />
         <Layout
-          sidebar={
-            <Sidebar
-              activeSidebarItem={activeSidebarItem}
-              setActiveSidebarItem={(item) => {
-                setActiveSidebarItem(item)
-              }}
-            />
-          }
+          sidebar={<Sidebar setRenderData={(arr) => setRenderData(arr)} />}
           content={
-            <Content
-              activeMenuItem={activeSidebarItem}
-              searchResult={searchResult}
-            />
+            <Content searchQuery={searchQuery} renderData={renderData} />
           }
         />
       </Theme>

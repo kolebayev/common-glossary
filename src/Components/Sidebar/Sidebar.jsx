@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Text } from '@gpn-design/uikit/Text'
 import './Sidebar.scss'
-import { dbCollections } from '../../Firebase/dbCollections'
-// import firebase from '../../Firebase/Firebase'
+import { sidebarTree } from './sidebarTree'
+import { glossary_common } from '../../Fuse/glossary_common'
+import { abbreviations_oil } from '../../Fuse/abbreviations_oil'
+import { abbreviations_units } from '../../Fuse/abbreviations_units'
 
 export default function Sidebar(props) {
+  const data = {
+    abbreviations_oil: abbreviations_oil,
+    abbreviations_units: abbreviations_units,
+    glossary_common: glossary_common,
+  }
+
+  const [activeSidebarItem, setActiveSidebarItem] = useState(
+    sidebarTree[0].value + '_' + sidebarTree[0].docs[0].value
+  )
+
   return (
     <div className="sidebar">
-      {dbCollections.map((collection, i) => {
+      {sidebarTree.map((collection, i) => {
         return (
           <div key={i} className="sidebar_section">
             <Text
@@ -25,13 +37,13 @@ export default function Sidebar(props) {
                 <div
                   key={i}
                   className={`sidebar_list-item ${
-                    props.activeSidebarItem ===
-                      collection.value + '-' + doc.value &&
+                    activeSidebarItem === collection.value + '_' + doc.value &&
                     'sidebar_list-item-active'
                   }`}
                   onClick={() => {
-                    props.setActiveSidebarItem(
-                      collection.value + '-' + doc.value
+                    setActiveSidebarItem(collection.value + '_' + doc.value)
+                    props.setRenderData(
+                      data[collection.value + '_' + doc.value]
                     )
                   }}
                 >

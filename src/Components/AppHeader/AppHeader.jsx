@@ -1,68 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Text } from '@gpn-design/uikit/Text'
-import {
-  Header,
-  HeaderModule,
-  HeaderLogo,
-  // HeaderSearchBar,
-} from '@gpn-design/uikit/Header'
-import { data } from './data.js'
-
-// import { TextField } from '@gpn-design/uikit/TextField'
-
-// import Fuse from 'fuse.js'
+import { Header, HeaderModule, HeaderLogo } from '@gpn-design/uikit/Header'
 import Fuse from '../../Fuse/Fuse'
-// https://fusejs.io/examples.html#nested-search
-
-import flex from '../../FlexSearch/FlexSearch'
-
-// import lunr from 'lunr'
-// import lunr from './lunr.es6'
-// import './lunr.ru.js'
-// import './lunr.stemmer.support.js'
-import 'lunr-languages/lunr.stemmer.support'
-import 'lunr-languages/lunr.ru'
-
-// http://elasticlunr.com/docs/index.html
 
 export default function AppHeader(props) {
-  // const data = [
-  //   {
-  //     name: 'Lunr',
-  //     text: 'Like Solr, but much smaller, and not as bright.',
-  //   },
-  //   {
-  //     name: 'React',
-  //     text: 'A JavaScript library for building user interfaces.',
-  //   },
-  //   {
-  //     name: 'Lodash',
-  //     text:
-  //       'A modern JavaScript utility library delivering modularity, performance & extras.',
-  //   },
-  // ]
-
-  const { setSearchQueryString } = props
-  const [searchQuery, setSearchQuery] = useState('')
+  const { setRenderData, setSearchQuery } = props
 
   const handleChange = (e) => {
-    setSearchQuery(e.target.value)
-  }
-
-  // let idx = lunr(function () {
-  //   this.ref('id')
-  //   this.field('text')
-
-  //   data.forEach(function (doc, i) {
-  //     console.log()
-  //     this.add({ ...doc, id: i })
-  //   }, this)
-  // })
-
-  const btn = () => {
-    console.log(Fuse.test('Ароматические'))
-    // flex.test('Ароматические')
-    // console.log(data)
+    let str = e.target.value
+    if (str !== ' ') {
+      setSearchQuery(str)
+      let searchResult = Fuse.search(str)
+      setRenderData([...searchResult.map((item) => item.item)])
+    }
   }
 
   return (
@@ -77,25 +27,14 @@ export default function AppHeader(props) {
             </HeaderLogo>
           </HeaderModule>
           <HeaderModule indent="l">
-            {/* <HeaderSearchBar
-              placeholder="Я ищу..."
-              label="поиск"
-              // value={'123'}
-              onChange={handleChange}
-              // onSearch={handleSearch}
-            /> */}
-            <input onChange={handleChange} />
-            <button onClick={btn}>perform</button>
-            {searchQuery}
-            {/* <TextField
-              width="default"
-              size="m"
-              view="default"
-              type="text"
-              // maxLength="20"
-              placeholder="Я ищу..."
-              onChange={handleChange}
-            /> */}
+            <div className="TextField TextField_size_m TextField_view_default TextField_form_default TextField_width_full TextField_type_text Header-SearchBarInput">
+              <input
+                className="TextField-Input"
+                placeholder="Я ищу..."
+                onChange={handleChange}
+                type="text"
+              />
+            </div>
           </HeaderModule>
         </>
       }
