@@ -1,10 +1,19 @@
 import React from 'react'
 import { Text } from '@gpn-design/uikit/Text'
 import { Header, HeaderModule, HeaderLogo } from '@gpn-design/uikit/Header'
+
+import { Button } from '@gpn-design/uikit/Button'
+
 import Fuse from '../../Fuse/Fuse'
 
 export default function AppHeader(props) {
-  const { setRenderData, setSearchQuery } = props
+  const {
+    setRenderData,
+    setSearchQuery,
+    setSearchState,
+    setUiIsDefault,
+    uiIsDefault,
+  } = props
 
   const handleChange = (e) => {
     let str = e.target.value
@@ -14,6 +23,11 @@ export default function AppHeader(props) {
       setRenderData([...searchResult.map((item) => item.item)])
     }
   }
+
+  const theme = [
+    { label: 'светлая', value: 'light' },
+    { label: 'темная', value: 'display' },
+  ]
 
   return (
     <Header
@@ -32,11 +46,25 @@ export default function AppHeader(props) {
                 className="TextField-Input"
                 placeholder="Я ищу..."
                 onChange={handleChange}
+                onFocus={() => {
+                  setSearchState(true)
+                  setRenderData([])
+                }}
+                // onBlur={() => {
+                //   setSearchState(false)
+                // }}
                 type="text"
               />
             </div>
           </HeaderModule>
         </>
+      }
+      rightSide={
+        <Button
+          label={uiIsDefault ? 'Включить темную тему' : 'Включить светлую тему'}
+          onClick={() => setUiIsDefault(!uiIsDefault)}
+          view="ghost"
+        />
       }
     />
   )

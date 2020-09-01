@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Theme, presetGpnDefault } from '@gpn-design/uikit/Theme'
+import { Theme, presetGpnDefault, presetGpnDark } from '@gpn-design/uikit/Theme'
 import { abbreviations_oil } from './Fuse/abbreviations_oil'
 
 import AppHeader from './Components/AppHeader/AppHeader'
@@ -12,21 +12,34 @@ import './App.css'
 function App() {
   const [renderData, setRenderData] = useState(abbreviations_oil)
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchState, setSearchState] = useState(false)
+  const [uiIsDefault, setUiIsDefault] = useState(true)
+
   return (
-    <div className="App">
-      <Theme preset={presetGpnDefault}>
+    <Theme preset={uiIsDefault ? presetGpnDefault : presetGpnDark}>
+      <div className="App">
         <AppHeader
           setRenderData={(arr) => setRenderData(arr)}
           setSearchQuery={(query) => setSearchQuery(query)}
+          setSearchState={(state) => setSearchState(state)}
+          setUiIsDefault={(theme) => setUiIsDefault(theme)}
+          uiIsDefault={uiIsDefault}
         />
         <Layout
-          sidebar={<Sidebar setRenderData={(arr) => setRenderData(arr)} />}
+          sidebar={
+            <Sidebar
+              setRenderData={(arr) => setRenderData(arr)}
+              setSearchQuery={(query) => setSearchQuery(query)}
+              setSearchState={(state) => setSearchState(state)}
+              searchState={searchState}
+            />
+          }
           content={
             <Content searchQuery={searchQuery} renderData={renderData} />
           }
         />
-      </Theme>
-    </div>
+      </div>
+    </Theme>
   )
 }
 
