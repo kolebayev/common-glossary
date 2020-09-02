@@ -7,10 +7,10 @@ export const sidebarTree = [
         value: 'oil',
         description: 'нефтяные',
       },
-      {
-        value: 'units',
-        description: 'подразделения',
-      },
+      // {
+      //   value: 'units',
+      //   description: 'подразделения',
+      // },
     ],
   },
   {

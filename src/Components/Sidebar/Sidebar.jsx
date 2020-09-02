@@ -4,14 +4,14 @@ import './Sidebar.scss'
 import { sidebarTree } from './sidebarTree'
 import { glossary_common } from '../../Fuse/glossary_common'
 import { abbreviations_oil } from '../../Fuse/abbreviations_oil'
-import { abbreviations_units } from '../../Fuse/abbreviations_units'
+// import { abbreviations_units } from '../../Fuse/abbreviations_units'
 
 export default function Sidebar(props) {
   const { searchState, setSearchState, setSearchQuery } = props
 
   const data = {
     abbreviations_oil: abbreviations_oil,
-    abbreviations_units: abbreviations_units,
+    // abbreviations_units: abbreviations_units,
     glossary_common: glossary_common,
   }
 
