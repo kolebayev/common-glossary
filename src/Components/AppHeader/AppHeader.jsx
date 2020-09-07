@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Text } from '@consta/uikit/Text'
 import {
   Header,
@@ -6,7 +6,9 @@ import {
   HeaderLogo,
   HeaderSearchBar,
 } from '@consta/uikit/Header'
-import { Button } from '@consta/uikit/Button'
+import { ChoiceGroup } from '@consta/uikit/ChoiceGroup'
+import { IconSun } from '@consta/uikit/IconSun'
+import { IconMoon } from '@consta/uikit/IconMoon'
 import './AppHeader.scss'
 
 import Fuse from '../../Fuse/Fuse'
@@ -31,6 +33,17 @@ export default function AppHeader(props) {
     setRenderData([...searchResult.map((item) => item.item)])
   }
 
+  const items = [
+    {
+      name: 'default',
+      icon: IconSun,
+    },
+    {
+      name: 'display',
+      icon: IconMoon,
+    },
+  ]
+
   return (
     <Header
       className="appheader"
@@ -54,11 +67,21 @@ export default function AppHeader(props) {
         </>
       }
       rightSide={
-        <Button
-          label={uiIsDefault ? 'Включить темную тему' : 'Включить светлую тему'}
-          onClick={() => setUiIsDefault(!uiIsDefault)}
-          view="ghost"
-        />
+        <>
+          <ChoiceGroup
+            value={uiIsDefault === true ? items[0] : items[1]}
+            onChange={({ value }) => {
+              console.log(value)
+              setUiIsDefault(value.name === 'display' ? false : true)
+            }}
+            onlyIcon
+            getLabel={(item) => item.name}
+            getIcon={(item) => item.icon}
+            items={items}
+            multiple={false}
+            size={'s'}
+          />
+        </>
       }
     />
   )
