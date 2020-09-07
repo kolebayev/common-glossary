@@ -24,6 +24,7 @@ function App() {
           setSearchState={(state) => setSearchState(state)}
           setUiIsDefault={(theme) => setUiIsDefault(theme)}
           uiIsDefault={uiIsDefault}
+          searchQuery={searchQuery}
         />
         <Layout
           sidebar={

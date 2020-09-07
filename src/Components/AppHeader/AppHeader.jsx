@@ -1,7 +1,14 @@
 import React from 'react'
 import { Text } from '@consta/uikit/Text'
-import { Header, HeaderModule, HeaderLogo } from '@consta/uikit/Header'
-import { Button } from '@consta/uikit/Button'
+import {
+  Header,
+  HeaderModule,
+  HeaderLogo,
+  HeaderSearchBar,
+} from '@consta/uikit/Header'
+import { ChoiceGroup } from '@consta/uikit/ChoiceGroup'
+import { IconSun } from '@consta/uikit/IconSun'
+import { IconMoon } from '@consta/uikit/IconMoon'
 import './AppHeader.scss'
 
 import Fuse from '../../Fuse/Fuse'
@@ -13,16 +20,29 @@ export default function AppHeader(props) {
     setSearchState,
     setUiIsDefault,
     uiIsDefault,
+    searchQuery,
   } = props
 
-  const handleChange = (e) => {
-    let str = e.target.value
-    if (str !== ' ') {
-      setSearchQuery(str)
-      let searchResult = Fuse.search(str)
-      setRenderData([...searchResult.map((item) => item.item)])
+  const handleChange = ({ value }) => {
+    setSearchState(true)
+    if (value === null) {
+      value = ''
     }
+    setSearchQuery(value)
+    let searchResult = Fuse.search(value)
+    setRenderData([...searchResult.map((item) => item.item)])
   }
+
+  const items = [
+    {
+      name: 'default',
+      icon: IconSun,
+    },
+    {
+      name: 'display',
+      icon: IconMoon,
+    },
+  ]
 
   return (
     <Header
@@ -37,30 +57,31 @@ export default function AppHeader(props) {
             </HeaderLogo>
           </HeaderModule>
           <HeaderModule indent="l">
-            <div className="TextField TextField_size_m TextField_view_default TextField_form_default TextField_width_full TextField_type_text Header-SearchBarInput">
-              <input
-                className="TextField-Input"
-                placeholder="Я ищу..."
-                onChange={handleChange}
-                onFocus={() => {
-                  setSearchState(true)
-                  setRenderData([])
-                }}
-                // onBlur={() => {
-                //   setSearchState(false)
-                // }}
-                type="text"
-              />
-            </div>
+            <HeaderSearchBar
+              placeholder="Я ищу..."
+              label="поиск"
+              onChange={handleChange}
+              value={searchQuery}
+            />
           </HeaderModule>
         </>
       }
       rightSide={
-        <Button
-          label={uiIsDefault ? 'Включить темную тему' : 'Включить светлую тему'}
-          onClick={() => setUiIsDefault(!uiIsDefault)}
-          view="ghost"
-        />
+        <>
+          <ChoiceGroup
+            value={uiIsDefault === true ? items[0] : items[1]}
+            onChange={({ value }) => {
+              console.log(value)
+              setUiIsDefault(value.name === 'display' ? false : true)
+            }}
+            onlyIcon
+            getLabel={(item) => item.name}
+            getIcon={(item) => item.icon}
+            items={items}
+            multiple={false}
+            size={'s'}
+          />
+        </>
       }
     />
   )
