@@ -71,7 +71,6 @@ export default function AppHeader(props) {
           <ChoiceGroup
             value={uiIsDefault === true ? items[0] : items[1]}
             onChange={({ value }) => {
-              console.log(value)
               setUiIsDefault(value.name === 'display' ? false : true)
             }}
             onlyIcon
