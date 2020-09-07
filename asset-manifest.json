@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/common-glossary/static/css/main.20ef7746.chunk.css",
-    "main.js": "/common-glossary/static/js/main.fd0f8055.chunk.js",
-    "main.js.map": "/common-glossary/static/js/main.fd0f8055.chunk.js.map",
+    "main.css": "/common-glossary/static/css/main.016c3d26.chunk.css",
+    "main.js": "/common-glossary/static/js/main.9a946319.chunk.js",
+    "main.js.map": "/common-glossary/static/js/main.9a946319.chunk.js.map",
     "runtime-main.js": "/common-glossary/static/js/runtime-main.27c8b3ef.js",
     "runtime-main.js.map": "/common-glossary/static/js/runtime-main.27c8b3ef.js.map",
-    "static/css/2.7844ea66.chunk.css": "/common-glossary/static/css/2.7844ea66.chunk.css",
-    "static/js/2.5df40841.chunk.js": "/common-glossary/static/js/2.5df40841.chunk.js",
-    "static/js/2.5df40841.chunk.js.map": "/common-glossary/static/js/2.5df40841.chunk.js.map",
+    "static/css/2.ed1fbc52.chunk.css": "/common-glossary/static/css/2.ed1fbc52.chunk.css",
+    "static/js/2.caf16cbb.chunk.js": "/common-glossary/static/js/2.caf16cbb.chunk.js",
+    "static/js/2.caf16cbb.chunk.js.map": "/common-glossary/static/js/2.caf16cbb.chunk.js.map",
     "index.html": "/common-glossary/index.html",
-    "precache-manifest.f174eb7a35f1e77a0864030c90fa105d.js": "/common-glossary/precache-manifest.f174eb7a35f1e77a0864030c90fa105d.js",
+    "precache-manifest.03f8115fce103e22d8a3fa7e62d1e782.js": "/common-glossary/precache-manifest.03f8115fce103e22d8a3fa7e62d1e782.js",
     "service-worker.js": "/common-glossary/service-worker.js",
-    "static/css/2.7844ea66.chunk.css.map": "/common-glossary/static/css/2.7844ea66.chunk.css.map",
-    "static/css/main.20ef7746.chunk.css.map": "/common-glossary/static/css/main.20ef7746.chunk.css.map",
-    "static/js/2.5df40841.chunk.js.LICENSE.txt": "/common-glossary/static/js/2.5df40841.chunk.js.LICENSE.txt"
+    "static/css/2.ed1fbc52.chunk.css.map": "/common-glossary/static/css/2.ed1fbc52.chunk.css.map",
+    "static/css/main.016c3d26.chunk.css.map": "/common-glossary/static/css/main.016c3d26.chunk.css.map",
+    "static/js/2.caf16cbb.chunk.js.LICENSE.txt": "/common-glossary/static/js/2.caf16cbb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.27c8b3ef.js",
-    "static/css/2.7844ea66.chunk.css",
-    "static/js/2.5df40841.chunk.js",
-    "static/css/main.20ef7746.chunk.css",
-    "static/js/main.fd0f8055.chunk.js"
+    "static/css/2.ed1fbc52.chunk.css",
+    "static/js/2.caf16cbb.chunk.js",
+    "static/css/main.016c3d26.chunk.css",
+    "static/js/main.9a946319.chunk.js"
   ]
 }
