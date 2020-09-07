@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text } from '@gpn-design/uikit/Text'
+import { Text } from '@consta/uikit/Text'
 import './Sidebar.scss'
 import { sidebarTree } from './sidebarTree'
 import { glossary_common } from '../../Fuse/glossary_common'
