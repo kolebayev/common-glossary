@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text } from '@consta/uikit/Text'
-import { Header, HeaderModule, HeaderLogo } from '@consta/uikit/Header'
+import {
+  Header,
+  HeaderModule,
+  HeaderLogo,
+  HeaderSearchBar,
+} from '@consta/uikit/Header'
 import { Button } from '@consta/uikit/Button'
 import './AppHeader.scss'
 
@@ -13,15 +18,17 @@ export default function AppHeader(props) {
     setSearchState,
     setUiIsDefault,
     uiIsDefault,
+    searchQuery,
   } = props
 
-  const handleChange = (e) => {
-    let str = e.target.value
-    if (str !== ' ') {
-      setSearchQuery(str)
-      let searchResult = Fuse.search(str)
-      setRenderData([...searchResult.map((item) => item.item)])
+  const handleChange = ({ value }) => {
+    setSearchState(true)
+    if (value === null) {
+      value = ''
     }
+    setSearchQuery(value)
+    let searchResult = Fuse.search(value)
+    setRenderData([...searchResult.map((item) => item.item)])
   }
 
   return (
@@ -37,21 +44,12 @@ export default function AppHeader(props) {
             </HeaderLogo>
           </HeaderModule>
           <HeaderModule indent="l">
-            <div className="TextField TextField_size_m TextField_view_default TextField_form_default TextField_width_full TextField_type_text Header-SearchBarInput">
-              <input
-                className="TextField-Input"
-                placeholder="Я ищу..."
-                onChange={handleChange}
-                onFocus={() => {
-                  setSearchState(true)
-                  setRenderData([])
-                }}
-                // onBlur={() => {
-                //   setSearchState(false)
-                // }}
-                type="text"
-              />
-            </div>
+            <HeaderSearchBar
+              placeholder="Я ищу..."
+              label="поиск"
+              onChange={handleChange}
+              value={searchQuery}
+            />
           </HeaderModule>
         </>
       }
