@@ -30,4 +30,8 @@
       background: var(--color-typo-normal);
     }
   }
+
+  &_no-result {
+    margin-top: var(--space-3xl);
+  }
 }

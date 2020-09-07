@@ -20,15 +20,9 @@ export default function Content(props) {
   return (
     <div className="content">
       {(clearedData.length === 0) & (searchQuery.length !== 0) ? (
-        <Text view="secondary" size="xl">
+        <Text view="secondary" size="xl" className="content_no-result">
           По запросу{' '}
-          <Text
-            as="span"
-            view="secondary"
-            size="xl"
-            weight="bold"
-            fontStyle="italic"
-          >
+          <Text as="span" view="secondary" size="xl" fontStyle="italic">
             {searchQuery}
           </Text>{' '}
           результатов нет
