@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@gpn-design/uikit/Text'
+import { Text } from '@consta/uikit/Text'
 import Highlighter from 'react-highlight-words'
 
 import './Content.scss'

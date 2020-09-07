@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
-import {
-  Theme,
-  presetGpnDefault,
-  presetGpnDisplay,
-} from '@gpn-design/uikit/Theme'
+import { Theme, presetGpnDefault, presetGpnDisplay } from '@consta/uikit/Theme'
 import { abbreviations_oil } from './Fuse/abbreviations_oil'
 
 import AppHeader from './Components/AppHeader/AppHeader'

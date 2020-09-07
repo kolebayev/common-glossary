@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text } from '@gpn-design/uikit/Text'
-import { Header, HeaderModule, HeaderLogo } from '@gpn-design/uikit/Header'
-import { Button } from '@gpn-design/uikit/Button'
+import { Text } from '@consta/uikit/Text'
+import { Header, HeaderModule, HeaderLogo } from '@consta/uikit/Header'
+import { Button } from '@consta/uikit/Button'
 import './AppHeader.scss'
 
 import Fuse from '../../Fuse/Fuse'
